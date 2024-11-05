@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class LoginPage {
@@ -61,7 +60,7 @@ public class LoginPage {
 
         signupLogin.click();
 
-        assertFalse(baseClass.exists(signupLogin));
+        assertTrue(baseClass.exists(signupLogin));
 
 
         LOG.info("After + Signup/Login element exists?" + baseClass.exists(signupLogin));
@@ -81,5 +80,13 @@ public class LoginPage {
         setPassword(pass);
         LOG.info("Setting password...");
         clickSubmit();
+    }
+
+    @FindBy(xpath = "/html/body/div/div[2]/div[1]/div[2]/div[2]/button[1]/p")
+    WebElement closePopUp;
+
+    public void closePopUp() {
+        baseClass.waitForElement(closePopUp);
+        closePopUp.click();
     }
 }

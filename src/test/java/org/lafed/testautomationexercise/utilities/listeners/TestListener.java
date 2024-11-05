@@ -63,8 +63,9 @@ public class TestListener implements ITestListener {
         String methodDescription = iTestResult.getMethod().getDescription();
         String description = methodId + "-" + methodDescription;
 
-        getTest().log(Status.PASS, description);
+        //getTest().log(Status.PASS, description);
 
+        logger.info("Test case is successfull !");
     }
 
     @Override

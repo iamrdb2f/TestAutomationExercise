@@ -36,6 +36,8 @@ public abstract class AbstractTest extends AbstractTestNGSpringContextTests {
     @Autowired
     protected TAEHandler taeHandler;
 
+    protected String TestScenario;
+
     protected BaseClass baseClass;
     protected LoginPage loginPage;
     protected int index;
@@ -69,10 +71,26 @@ public abstract class AbstractTest extends AbstractTestNGSpringContextTests {
     }
 
     @Step
-    public synchronized void runInit(ITestContext context, ObjectNode data, String TestScenario) throws Exception {
+    public synchronized void runInit(ITestContext context, String testName) throws Exception {
+        //Close pop-up
+        loginPage.closePopUp();
+
         //Initialize transaction
         loginPage.login(taeHandler.getEnvironment(), taeHandler.getUserName(), taeHandler.getPassword());
         Assert.assertEquals(driver.getTitle(), "Automation Exercise");
         logger.info("Logged in! :)");
+
+        Assert.assertEquals(driver.getTitle(), "Automation Exercise");
+
+        System.out.println("################" + driver.getTitle() + "################");
+        // Check if title is not null or empty
+        String title = driver.getTitle();
+        if (title != null && !title.isEmpty()) {
+            TestScenario = title + testName;
+            context.setAttribute("TEST CASE", TestScenario);
+        } else {
+            logger.warn("The title is null or empty: " + title);
+            context.setAttribute("TEST CASE", "DefaultScenario");
+        }
     }
 }

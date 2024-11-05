@@ -19,7 +19,7 @@ pipeline {
         }
         stage('PreBuild: Clone') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: false]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git_credential', url: ' ']]])
+                checkout([$class: 'GitSCM', branches: [[name: '${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: false]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git_credential', url: 'https://github.com/iamrdb2f/TestAutomationExercise.git']]])
             }
         }
         stage('Build: Launch tests') {

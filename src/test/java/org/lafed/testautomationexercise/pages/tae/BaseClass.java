@@ -104,7 +104,7 @@ public class BaseClass {
         }
     }
 
-    // Get the xpath of and WebElement
+    // Get the xpath of a WebElement
     public String getXpath(WebElement elem) {
         if (exists(elem)) {
             // If print elem = [[ChromeDriver: chrome on WINDOWS (0f1b4ff6cbf41d20564137b0563b2882)] -> xpath: //*[@id="_id3:AdviseELCWP_ValidationP_IssueListWP_ctlTempIssues"]]
