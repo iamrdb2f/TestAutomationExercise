@@ -1,0 +1,9 @@
+{
+    "testcaseName": "TestCaseLogin",
+    "testcaseDescription": "Test Case to verify the login functionality",
+    "testcasePrecondition": "User should have valid credentials",
+    "testcaseSteps": ["Step1: Enter the URL", "Step2: Enter the username and password", "Step3: Click on the login button"],
+    "testcaseExpectedResult": "User should be able to login successfully",
+    "testcaseActualResult": "User is able to login successfully",
+    "testcaseStatus": "Pass"
+}
