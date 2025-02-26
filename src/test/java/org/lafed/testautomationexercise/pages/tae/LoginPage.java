@@ -82,7 +82,7 @@ public class LoginPage {
         clickSubmit();
     }
 
-    @FindBy(xpath = "/html/body/div/div[2]/div[1]/div[2]/div[2]/button[1]/p")
+    @FindBy(xpath = "//button[normalize-space()='Autoriser']\n")
     WebElement closePopUp;
 
     public void closePopUp() {
